@@ -6,8 +6,12 @@ public class Game {
     public static void main(String[] args) {
         boolean playAgain = true;
         String userAnswer = "";
+        //users picked card
         int handNumber;
+        //computers picked card
         int computerHand;
+        //win streak
+        int winStreak = 0;
 
         Game game = new Game();
 
@@ -27,17 +31,20 @@ public class Game {
                     throw new InputMismatchException("Input out of range, please try again\n");
                 }
 
-                computerHand = random.nextInt(5) + 1;
+                //Computer pick random card
+                computerHand = random.nextInt(5) + 1;;
                 System.out.println("Computer hand: " + computerHand);
 
                 //Scissors cuts paper
                 if (handNumber == 3 && computerHand == 2) {
                     System.out.println("Your Scissors cuts the computers Paper!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (handNumber == 2 && computerHand == 3) {
                     System.out.println("Your Paper was cut by the computers Scissors.\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -45,10 +52,12 @@ public class Game {
                 if (handNumber == 2 && computerHand == 1) {
                     System.out.println("Your Paper covers the computers Rock!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (handNumber == 1 && computerHand == 2) {
                     System.out.println("Your Rock was covered by the computers Paper\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -56,10 +65,12 @@ public class Game {
                 if (handNumber == 1 && computerHand == 3) {
                     System.out.println("Your Rock crushed the computers Scissors!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (handNumber == 3 && computerHand == 1) {
                     System.out.println("Your Scissors was crushed by the computers Rock\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -67,10 +78,12 @@ public class Game {
                 if (handNumber == 1 && computerHand == 4) {
                     System.out.println("Your Rock crushes the computers Lizard!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (handNumber == 4 && computerHand == 1) {
                     System.out.println("Your Lizard was crushed by the computers Rock\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -78,10 +91,12 @@ public class Game {
                 if (handNumber == 4 && computerHand == 5) {
                     System.out.println("Your Lizard poisons the computers Spock!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (handNumber == 5 && computerHand == 4) {
                     System.out.println("Your Sock was poisoned by the computers Lizard\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -89,10 +104,12 @@ public class Game {
                 if (handNumber == 5 && computerHand == 3) {
                     System.out.println("Your Spock smashes the computers Scissors!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (handNumber == 3 && computerHand == 5) {
                     System.out.println("Your Scissors was smashed by the computers Spock\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -100,10 +117,12 @@ public class Game {
                 if (handNumber == 3 && computerHand == 4) {
                     System.out.println("Your Scissors decapitates the computers Lizard!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (computerHand == 3 && handNumber == 4) {
                     System.out.println("Your Lizard was decapitated by the computers Scissors\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -111,10 +130,12 @@ public class Game {
                 if (handNumber == 4 && computerHand == 2) {
                     System.out.println("Your Lizard eats the computers Paper!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (handNumber == 2 && computerHand == 4) {
                     System.out.println("Your Paper was eaten by the computers Lizard\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -122,10 +143,12 @@ public class Game {
                 if (handNumber == 2 && computerHand == 5) {
                     System.out.println("Your paper disproves the computers Spock!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (handNumber == 5 && computerHand == 2) {
                     System.out.println("Your Spock was disproved by the computers Paper\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -133,10 +156,12 @@ public class Game {
                 if (handNumber == 5 && computerHand == 1) {
                     System.out.println("Your Spock vaporises the computers Rock!\n");
                     userScore++;
+                    winStreak++;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 } else if (handNumber == 1 && computerHand == 5) {
                     System.out.println("Your Rock was vaporised by the computers Spock\n");
                     computerScore++;
+                    winStreak = 0;
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
@@ -146,8 +171,10 @@ public class Game {
                     System.out.println("Scoreboard: YOU: " + userScore + " COMP: " + computerScore);
                 }
 
+                System.out.println("win streak: " +winStreak);
+
                 //Call playAgain method
-                game.playAgain(userAnswer, userInput, playAgain, userScore, computerScore);
+                game.playAgain(userAnswer, userInput, playAgain, userScore, computerScore, winStreak);
 
             } catch (InputMismatchException e) {
                 System.err.println(e.getMessage());
@@ -155,21 +182,31 @@ public class Game {
         }
     }
 
-    public boolean playAgain(String userAnswer, Scanner userInput, boolean playAgain, int userScore, int computerScore) {
+    public boolean playAgain(String userAnswer, Scanner userInput, boolean playAgain, int userScore, int computerScore, int winStreak) {
         System.out.print("\nWould you like to play again?: ");
         userAnswer = userInput.next();
 
+        //Change user decision to lowercase
         userAnswer = userAnswer.toLowerCase();
 
         if (userAnswer.equals("yes") || userAnswer.equals("y")) {
             playAgain = true;
         } else if (userAnswer.equals("no") || userAnswer.equals("n")) {
             playAgain = false;
-            System.out.println("\n\nThanks for playing! Final Score: YOU: " +userScore +" COMP: " +computerScore);
+
+            //Call scoreboard class to read the leaderboard text file and update it if any records were broken
+            Scoreboard scoreboard = new Scoreboard();
+
+            scoreboard.readScoreList();
+
+            scoreboard.writeNewScore(userScore, winStreak);
+
+            System.out.println("\nThanks for playing! Final Score: YOU: " +userScore +" COMP: " +computerScore);
+            System.out.println("Win Streak for this run: " +winStreak);
             System.exit(1);
         } else {
             System.err.println("Invalid input. Yes/No required. Please try again\n");
-            playAgain(userAnswer, userInput, playAgain, userScore, computerScore);
+            playAgain(userAnswer, userInput, playAgain, userScore, computerScore, winStreak);
         }
         return playAgain;
     }
